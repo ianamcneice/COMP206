@@ -24,9 +24,18 @@ int main(void){
 	
 	//add each number in txt file to LL
 	int toAdd;
-	fscanf(fptr, "%d", &toAdd);
-	//debugging
-	printf("%d", toAdd);
+	while(fscanf(fptr, "%d", &toAdd) == 1){
+		//debugging - this print will be add(int) function
+		printf("%d", toAdd);
 
+	}
+	
+	//hit end of file
+	//debugging printf
+	if(feof(fptr))
+		printf(" end of file (LL)\n");
+	//some error
+	else
+		printf("Read interrupted.\n");
 	fclose(fptr);
 }
