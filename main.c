@@ -4,17 +4,18 @@
 int main(void){
 	
 	//declare char array to hold user input and boolean for while loop
-	char f_name[100];
+	char fname[100];
 	BOOLEAN exists = FALSE;
 	FILE *fptr;
 
 	while(!exists){
 
 		printf("Please enter a filename or path: "); 
-		fptr = fgets(f_name, 100, stdin);
+		scanf("%s", &fname);
 	
 		//check if file exists and open;
-		if(fptr = fopen(f_name, "r")){
+		fptr = fopen(fname, "r");
+		if(fptr != NULL){
 			exists = TRUE;
 			//debugging
 			printf("File exists");
@@ -23,6 +24,6 @@ int main(void){
 			printf("FILE OR PATH INVALID. ");
 	}
 	
-
+	printf("while loop exited successfully");
 	fclose(fptr);
 }

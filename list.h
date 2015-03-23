@@ -1,4 +1,4 @@
-#ifndef
+#ifndef LIST_H
 #define LIST_H
 
 #define BOOLEAN int
