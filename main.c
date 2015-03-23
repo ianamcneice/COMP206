@@ -10,20 +10,23 @@ int main(void){
 
 	while(!exists){
 
-		printf("Please enter a filename or path: "); 
+		printf("Please enter a filename or path: \n"); 
 		scanf("%s", &fname);
 	
-		//check if file exists and open;
+		//check if file exists and open; reiterate until user inputs valid file
 		fptr = fopen(fname, "r");
 		if(fptr != NULL){
 			exists = TRUE;
-			//debugging
-			printf("File exists");
 		}
 		else
-			printf("FILE OR PATH INVALID. ");
+			printf("FILE OR PATH INVALID. \n");
 	}
 	
-	printf("while loop exited successfully");
+	//add each number in txt file to LL
+	int toAdd;
+	fscanf(fptr, "%d", &toAdd);
+	//debugging
+	printf("%d", toAdd);
+
 	fclose(fptr);
 }
