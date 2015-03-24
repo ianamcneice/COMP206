@@ -2,18 +2,19 @@
 #include "list.h"
 
 //LL
-struct elem{
+struct node{
 	int value;
-	struct elem *next;
+	struct node *next;
 };
 
-typedef struct elem NODE;
+typedef struct node NODE;
 
 NODE *head, *tail, *temp;
-head = NULL;
 
 //functions
 void add(int num){
+	//debug
+	printf("%d", num);
 	temp = (NODE *)malloc(sizeof(NODE));
 	temp->value = num;
 	if(tail == NULL)
@@ -44,4 +45,6 @@ void prettyPrint(){
 
 //}
 
-int main(void){}
+int main(void){
+   return 0;
+}

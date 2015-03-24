@@ -27,11 +27,12 @@ int main(void){
 	while(fscanf(fptr, "%d", &newNum) == 1){
 		add(newNum);
 	}
-	
 	//hit end of file
 	if(feof(fptr)){}
 	//some other error
 	else
 		printf("Read interrupted.\n");
 	fclose(fptr);
+	
+	prettyPrint();
 }
