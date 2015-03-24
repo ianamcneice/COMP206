@@ -9,15 +9,22 @@ struct elem{
 
 typedef struct elem NODE;
 
-NODE *head, *tail;
+NODE *head, *tail, *temp;
+head = NULL;
 
 //functions
 void add(int num){
-	tail = (NODE *)malloc(sizeof(NODE));
-	tail->value = num;
+	temp = (NODE *)malloc(sizeof(NODE));
+	temp->value = num;
+	if(tail == NULL)
+		tail = temp;
+	else{
+		tail->next = temp;
+		tail = temp;
+	}
 	tail->next = NULL;
 	if(head == NULL)
-		head = tail;
+		head = temp;
 }
 
 void prettyPrint(){
@@ -26,6 +33,7 @@ void prettyPrint(){
 	while(curr !=NULL){
 		printf("%d %s", curr->value, ", ");
 		curr = curr->next;
+	}
 }
 
 //BOOLEAN delete(int){
@@ -35,3 +43,5 @@ void prettyPrint(){
 //struct NODE *find(int){
 
 //}
+
+int main(void){}
