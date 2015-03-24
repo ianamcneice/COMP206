@@ -14,8 +14,6 @@ NODE *head, *tail, *temp;
 
 //functions
 void add(int num){
-	//debug
-	printf("%d", num);
 	temp = (NODE *)malloc(sizeof(NODE));
 	temp->value = num;
 	if(tail == NULL)
@@ -33,17 +31,51 @@ void prettyPrint(){
 	NODE *curr;
 	curr = head;
 	while(curr !=NULL){
-		printf("%d %s", curr->value, ", ");
+		printf("%d %s", curr->value, "\n");
 		curr = curr->next;
 	}
 }
 
-//BOOLEAN delete(int){
+struct NODE *find(int comp){
+	NODE *parser;
+	parser = head;
+	while(parser != NULL){
+		if(parser->value == comp)
+			return parser; //mathing int found in LL
+		parser = parser->next;
+	}
+	
+	//no matching int
+	return NULL;
+}
 
-//}
+BOOLEAN delete(int i){
+	NODE *todel = find(i);
 
-//struct NODE *find(int){
+	//if number to delete is head, can simply free head
+	if(todel == head){
+		head = head->next;
+		free(todel);
+		return TRUE;
+	}
+	
+	NODE *prev = head; 
+	NODE *curr = head->next;
+		
+	//find prev node to node to be deleted
+	while(curr != todel){
+		prev = prev->next;
+		curr = curr->next;
+	}
+	
+	if(todel == NULL)
+		return FALSE;
+	else{
+		prev->next = todel->next;
+		free(todel);
+		return TRUE;
+	}
+}
 
-//}
 
 

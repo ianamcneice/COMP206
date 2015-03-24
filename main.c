@@ -36,4 +36,14 @@ int main(void){
 	fclose(fptr);
 	
 	prettyPrint();
+
+	//ask user to delete number
+	int del;
+	printf("Please enter a number to delete: ");
+	scanf("%d", &del);
+	
+	//delete from LL
+	delete(del);
+
+	prettyPrint();
 }
