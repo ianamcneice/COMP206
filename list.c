@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "list.h"
 
 //LL
@@ -45,6 +46,4 @@ void prettyPrint(){
 
 //}
 
-int main(void){
-   return 0;
-}
+
