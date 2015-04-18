@@ -52,6 +52,8 @@ struct NODE *find(int comp){
 BOOLEAN delete(int i){
 	NODE *todel = find(i);
 
+	//could try to handle case where LL is empty here
+
 	//if number to delete is head, can simply free head
 	if(todel == head){
 		head = head->next;

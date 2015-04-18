@@ -38,12 +38,26 @@ int main(void){
 	prettyPrint();
 
 	//ask user to delete number
-	int del;
-	printf("Please enter a number to delete: ");
-	scanf("%d", &del);
+	int run = 0;
+	while(run == 0){
+		int del;
+		printf("Please enter a number to delete: ");
+		scanf("%d", &del);
 	
-	//delete from LL
-	delete(del);
+		//delete from LL
+		if(delete(del))
+			printf("NUMBER WAS DELETED\n");
+		else
+			printf("NUMBER WAS NOT FOUND\n");
 
-	prettyPrint();
+		prettyPrint();
+
+		//asks user if they would like to do this again
+		char yn[3];
+			printf("Would you like to delete another number? \n");
+			scanf("%s", yn);
+			//compares user response to possible affirmative responses, continues run while loop
+			if(!(strcmp(yn, "YES") == 0 || strcmp(yn, "Y") == 0 || strcmp(yn, "y") == 0 || strcmp(yn, "yes") == 0)) 
+				run=1;
+	}
 }
